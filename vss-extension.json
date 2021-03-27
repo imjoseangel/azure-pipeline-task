@@ -1,20 +1,20 @@
 {
     "manifestVersion": 1,
-    "id": "build-release-task",
-    "name": "ZZTool",
-    "version": "1.0.1",
+    "id": "zztoolfortesting",
+    "name": "zztoolfortesting",
+    "version": "1.0.2",
     "publisher": "imjoseangel",
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
         }
     ],
-    "description": "Tools for building/releasing with ZZ. Includes one build/release task.",
+    "description": "Build release task for testing purposes",
     "categories": [
         "Azure Pipelines"
     ],
     "icons": {
-        "default": "images/extension-icon.png"
+        "default": "images/icon.png"
     },
     "files": [
         {
@@ -23,7 +23,7 @@
     ],
     "contributions": [
         {
-            "id": "custom-build-release-task",
+            "id": "zztoolfortesting",
             "type": "ms.vss-distributed-task.task",
             "targets": [
                 "ms.vss-distributed-task.tasks"

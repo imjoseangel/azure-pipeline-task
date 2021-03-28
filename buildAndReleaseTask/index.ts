@@ -12,11 +12,11 @@ async function run() {
         console.log('========================== Starting Command Output ===========================');
 
         let ansiblePath: string = tl.which('ansible', true);
-
         const { stdout, stderr } = await exec(ansiblePath + ' -ilocahost, -m debug -a msg=' + inputString + ' localhost');
 
         console.log('stdout:', stdout.trim());
         console.log('stderr:', stderr.trim());
+
     } catch (err) {
         tl.setResult(tl.TaskResult.Failed, err.message);
     };

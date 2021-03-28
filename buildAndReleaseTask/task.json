@@ -19,12 +19,12 @@
     "instanceNameFormat": "Echo $(samplestring)",
     "inputs": [
         {
-            "name": "samplestring",
+            "name": "flag",
             "type": "string",
-            "label": "Sample String",
+            "label": "Bash Flag",
             "defaultValue": "",
             "required": true,
-            "helpMarkDown": "A sample string"
+            "helpMarkDown": "A bash flag"
         }
     ],
     "execution": {

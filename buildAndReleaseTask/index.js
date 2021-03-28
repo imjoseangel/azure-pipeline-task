@@ -37,23 +37,32 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var tl = require("azure-pipelines-task-lib/task");
+var util = require('util');
+var exec = util.promisify(require('child_process').exec);
 function run() {
     return __awaiter(this, void 0, void 0, function () {
-        var inputString;
-        return __generator(this, function (_a) {
-            try {
-                inputString = tl.getInput('samplestring', true);
-                if (inputString == 'bad') {
-                    tl.setResult(tl.TaskResult.Failed, 'Bad input was given');
+        var inputString, _a, stdout, stderr, err_1;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    _b.trys.push([0, 2, , 3]);
+                    inputString = tl.getInput('flag', true);
+                    return [4 /*yield*/, exec('ls ', inputString)];
+                case 1:
+                    _a = _b.sent(), stdout = _a.stdout, stderr = _a.stderr;
+                    console.log('stdout:', stdout);
+                    console.log('stderr:', stderr);
+                    return [3 /*break*/, 3];
+                case 2:
+                    err_1 = _b.sent();
+                    tl.setResult(tl.TaskResult.Failed, err_1.message);
+                    return [3 /*break*/, 3];
+                case 3:
+                    ;
                     return [2 /*return*/];
-                }
-                console.log('Hello', inputString);
             }
-            catch (err) {
-                tl.setResult(tl.TaskResult.Failed, err.message);
-            }
-            return [2 /*return*/];
         });
     });
 }
+;
 run();

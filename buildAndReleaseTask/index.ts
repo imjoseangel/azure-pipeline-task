@@ -1,17 +1,17 @@
 import tl = require('azure-pipelines-task-lib/task');
 
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
+
 async function run() {
     try {
-        const inputString: string | undefined = tl.getInput('samplestring', true);
-        if (inputString == 'bad') {
-            tl.setResult(tl.TaskResult.Failed, 'Bad input was given');
-            return;
-        }
-        console.log('Hello', inputString);
-    }
-    catch (err) {
+        const inputString: string | undefined = tl.getInput('flag', true);
+        const { stdout, stderr } = await exec('ls ', inputString);
+        console.log('stdout:', stdout);
+        console.log('stderr:', stderr);
+    } catch (err) {
         tl.setResult(tl.TaskResult.Failed, err.message);
-    }
-}
+    };
+};
 
 run();

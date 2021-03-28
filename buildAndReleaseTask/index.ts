@@ -11,8 +11,8 @@ async function run() {
 
         console.log('========================== Starting Command Output ===========================');
 
-        let ansiblePath: string = tl.which('ansible', true);
-        const { stdout, stderr } = await exec(ansiblePath + ' -ilocahost, -m debug -a msg=' + inputString + ' localhost');
+        let ansiblePath: string = tl.which('ansible-playbook', true);
+        const { stdout, stderr } = await exec(ansiblePath + ' -ilocalhost, ~/source/sandbox/' + inputString);
 
         console.log('stdout:', stdout.trim());
         console.log('stderr:', stderr.trim());

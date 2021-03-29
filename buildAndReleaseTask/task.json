@@ -1,10 +1,10 @@
 {
     "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
     "id": "e2474655-67be-4ba1-9ee3-2040788868b6",
-    "name": "basictask",
-    "friendlyName": "Create Basic Task",
-    "description": "My First Task",
-    "helpMarkDown": "Does nothing",
+    "name": "ansible-basic",
+    "friendlyName": "Launches Basic Ansible Debug",
+    "description": "Ansible Debugger",
+    "helpMarkDown": "Ansible Debugger",
     "category": "Utility",
     "author": "imjoseangel",
     "version": {
@@ -21,10 +21,10 @@
         {
             "name": "flag",
             "type": "string",
-            "label": "Bash Flag",
-            "defaultValue": "",
+            "label": "Ansible Debug",
+            "defaultValue": "hello",
             "required": true,
-            "helpMarkDown": "A bash flag"
+            "helpMarkDown": "An Ansible message"
         }
     ],
     "execution": {

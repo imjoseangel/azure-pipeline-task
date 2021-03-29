@@ -1,5 +1,4 @@
 import tl = require('azure-pipelines-task-lib/task');
-import tr = require('azure-pipelines-task-lib/toolrunner');
 
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
@@ -11,8 +10,8 @@ async function run() {
 
         console.log('========================== Starting Command Output ===========================');
 
-        let ansiblePath: string = tl.which('ansible-playbook', true);
-        const { stdout, stderr } = await exec(ansiblePath + ' -ilocalhost, ~/source/sandbox/' + inputString);
+        let ansiblePath: string = tl.which('ansible', true);
+        const { stdout, stderr } = await exec(ansiblePath + ' -i localhost, -m debug -a "msg="' + inputString + ' localhost');
 
         console.log('stdout:', stdout.trim());
         console.log('stderr:', stderr.trim());
